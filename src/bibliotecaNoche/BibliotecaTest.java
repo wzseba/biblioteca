@@ -48,6 +48,17 @@ public class BibliotecaTest {
 	  assertEquals(null, biblio.libroConMasPaginas());
   }
   
+  @Test public void contieneElLibro() {
+	  Biblioteca biblio = new Biblioteca(10);
+	  biblio.agregarLibro("Moby Dick", "Melville", Genero.AVENTURA, 800);
+	  biblio.agregarLibro("Pepe", "Pedro", Genero.INFANTILES, 9099);
+	  biblio.agregarLibro("La ultima cena", "Judas", Genero.HISTORIA, 10000);
+	  
+	  Libro esperado = new Libro("Pepe", "Pedro", Genero.INFANTILES, 9099);
+	  
+	  assertTrue(biblio.contieneElLibro(esperado));
+  }
+  
   @Test(expected = Error.class) 
   public void bibliotecaLlena() { 
 	  Biblioteca biblio = new Biblioteca(3); 
